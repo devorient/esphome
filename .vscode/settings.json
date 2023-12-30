@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.autoIndent": "advanced",
+    "[yaml]": {
+        "editor.tabSize": 2
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/build/**": true,
+    }
+}
