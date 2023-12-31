@@ -1,0 +1,22 @@
+{
+    "name": "ESPHome",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "ESPHome.esphome-vscode",
+                "esbenp.prettier-vscode",
+                "redhat.vscode-yaml"
+            ]
+        }
+    },
+    "features": {
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "runArgs": ["--device=/dev/ttyUSB0", "--group-add=dialout"]
+}
