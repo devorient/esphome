@@ -3,7 +3,7 @@ FROM library/python:3.11-slim-bookworm
 ARG USER=vscode
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update \
-    && apt install -y --no-install-recommends sudo bash-completion git pipx \
+    && apt install -y --no-install-recommends sudo bash-completion git openssh-client pipx \
     && apt autoremove -y \
     && rm -rf /var/lib/apt/lists/* \
     && echo 'source /etc/profile.d/bash_completion.sh' >> /etc/bash.bashrc \
