@@ -5,7 +5,7 @@ esphome:
 
   project:
     name: smartplug.wifip130fwt
-    version: 0.0.1
+    version: 0.0.2
 
 bk72xx:
   board: generic-bk7231t-qfn32-tuya
@@ -38,17 +38,49 @@ binary_sensor:
     on_press:
       then:
         - switch.toggle: switch_1
+    on_click:
+      - min_length: 2s
+        max_length: 5s
+        then:
+          - button.press: restart_btn_1
+      - min_length: 6s
+        max_length: 10s
+        then:
+          - button.press: factory_reset_btn_1
 
 switch:
   - platform: gpio
     id: switch_1
     name: Relay 1
     pin: P26
+    on_turn_on:
+      then:
+        - light.turn_on: status_led_1
+    on_turn_off:
+      then:
+        - light.turn_off: status_led_1
 
-status_led:
-  pin:
-    number: P6
-    inverted: true
+button:
+  - platform: restart
+    id: restart_btn_1
+    name: Restart
+    entity_category: diagnostic
+
+  - platform: factory_reset
+    id: factory_reset_btn_1
+    name: Factory Reset
+    entity_category: diagnostic
+
+light:
+  - platform: status_led
+    name: Switch state
+    pin:
+      number: P6
+      inverted: true
+    id: status_led_1
+    internal: true
+    on_state:
+      then:
 
 sensor:
   - platform: wifi_signal
