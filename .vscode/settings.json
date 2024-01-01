@@ -13,6 +13,7 @@
     "files.associations": {
         ".prettierrc.yml": "yaml",
         "secrets.yaml": "yaml",
+        "*.dev": "plaintext",
         "*.yaml": "esphome",
         "*.yml": "esphome"
     },
